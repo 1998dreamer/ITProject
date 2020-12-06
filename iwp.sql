@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 27, 2019 at 10:37 AM
--- Server version: 10.1.35-MariaDB
--- PHP Version: 7.2.9
+-- Generation Time: Dec 06, 2020 at 06:00 PM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -39,7 +38,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`adminid`, `password`, `empid`) VALUES
-('sachin', '1234', 'sachin');
+('bhardwaj', 'bhardwaj', '19mcmc26');
 
 -- --------------------------------------------------------
 
@@ -61,10 +60,10 @@ INSERT INTO `balance` (`balance`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `booked_hist`
+-- Table structure for table `booked_list`
 --
 
-CREATE TABLE `booked_hist` (
+CREATE TABLE `booked_list` (
   `phone` int(11) NOT NULL,
   `name` varchar(20) NOT NULL,
   `idproof` varchar(20) NOT NULL,
@@ -81,16 +80,6 @@ CREATE TABLE `booked_hist` (
   `price` int(11) NOT NULL,
   `book_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `booked_hist`
---
-
-INSERT INTO `booked_hist` (`phone`, `name`, `idproof`, `room_type`, `checkin`, `checkout`, `days`, `ac`, `breakfast`, `lunch`, `snacks`, `dinner`, `swimming`, `price`, `book_id`) VALUES
-(123, 'abc', '123', 'Single bed', '2019-10-09', '2019-10-17', 8, 'false', 'false', 'false', 'false', 'false', 'false', 1000, 10013),
-(123, 'abc', '123', 'Single bed', '2019-10-09', '2019-10-12', 3, 'false', 'true', 'true', 'false', 'false', 'false', 2350, 10014),
-(123, 'abc', '123', 'Single bed', '2019-10-17', '2019-10-19', 2, 'false', 'false', 'false', 'false', 'false', 'false', 1000, 10016),
-(1234, 'Vaibhav', '1234', 'Single bed', '2019-11-08', '2019-11-10', 2, 'false', 'true', 'true', 'false', 'false', 'false', 2900, 10019);
 
 -- --------------------------------------------------------
 
@@ -133,14 +122,6 @@ CREATE TABLE `confirmed_booking` (
   `book_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `confirmed_booking`
---
-
-INSERT INTO `confirmed_booking` (`phone`, `name`, `idproof`, `room_type`, `checkin`, `checkout`, `days`, `ac`, `breakfast`, `lunch`, `snacks`, `dinner`, `swimming`, `price`, `book_id`) VALUES
-(123, 'abc', '123', 'Double bed', '2019-10-09', '2019-10-19', 10, 'false', 'false', 'true', 'false', 'false', 'false', 20400, 10017),
-(123, 'abc', '123', 'Single bed', '2019-10-02', '2019-10-04', 2, 'false', 'false', 'false', 'false', 'false', 'false', 2000, 10018);
-
 -- --------------------------------------------------------
 
 --
@@ -160,7 +141,7 @@ CREATE TABLE `rooms_count` (
 
 INSERT INTO `rooms_count` (`room_type`, `available_rooms`, `occupied_rooms`, `price`) VALUES
 ('Single bed', 5, 1, 1000),
-('Double bed', 4, 1, 1800),
+('Double bed', 6, 1, 1800),
 ('Four bed', 5, 0, 3000);
 
 -- --------------------------------------------------------
@@ -230,15 +211,6 @@ CREATE TABLE `user_login` (
   `idproof` varchar(20) NOT NULL,
   `dob` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `user_login`
---
-
-INSERT INTO `user_login` (`phone`, `password`, `name`, `email`, `idproof`, `dob`) VALUES
-(123, '1234', 'abc', 'abc@gmail.com', '123', '2000-01-01'),
-(0, '', '', '', '', '0000-00-00'),
-(1234, '12345', 'Vaibhav', 'vaibhav@gmail.com', '1234', '2000-01-01');
 
 -- --------------------------------------------------------
 
